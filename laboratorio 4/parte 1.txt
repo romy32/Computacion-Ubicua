@@ -1,19 +1,23 @@
-int SENSOR;
-float TEMPERATURA;
-float SUMA;
+int SENSOR; // Variable para almacenar la lectura del sensor
+float TEMPERATURA; // Variable para guardar la temperatura calculada
+float SUMA; // Variable para acumular temperaturas
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600); // Inicia la comunicación serial
 }
 
 void loop() {
-  SUMA = 0;
-  for (int i = 0; i < 5; i++) {
-    SENSOR = analogRead(A0);
-    TEMPERATURA = ((SENSOR * 5000.0) / 1023) / 10;
-    SUMA = TEMPERATURA + SUMA;
-    delay(500);
+  SUMA = 0; // Reinicia la suma
+
+  for (int i = 0; i < 5; i++) { // Repite 5 lecturas
+    SENSOR = analogRead(A0); // Lee el sensor en A0
+
+    TEMPERATURA = ((SENSOR * 5000.0) / 1023) / 10; // Convierte la lectura a temperatura
+
+    SUMA = TEMPERATURA + SUMA; // Acumula las temperaturas
+
+    delay(500); // Espera 500 ms
   }
-  
-  Serial.println(SUMA/5.0, 1);
+
+  Serial.println(SUMA/5.0, 1); // Muestra el promedio de temperatura
 }

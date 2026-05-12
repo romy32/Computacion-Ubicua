@@ -1,16 +1,15 @@
-int PULSADOR = 2; 
-int LED = 3; 
+int PULSADOR = 2; // Pin del pulsador
+int LED = 3; // Pin del LED
 
-void setup() { 
-  pinMode(PULSADOR, INPUT_PULLUP); 
-  pinMode(LED, OUTPUT); 
+void setup() {
+  pinMode(PULSADOR, INPUT_PULLUP); // Configura el pulsador como entrada
+  pinMode(LED, OUTPUT); // Configura el LED como salida
+}
 
-} 
-
-void loop() { 
-  if (digitalRead(PULSADOR) == HIGH) { 
-    digitalWrite(LED, HIGH); 
-  } else { 
-    digitalWrite(LED, LOW); 
-  } 
-} 
+void loop() {
+  if (digitalRead(PULSADOR) == HIGH) { // Verifica el estado del pulsador
+    digitalWrite(LED, HIGH); // Enciende el LED
+  } else {
+    digitalWrite(LED, LOW); // Apaga el LED
+  }
+}
